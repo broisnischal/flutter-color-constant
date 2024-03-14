@@ -25,29 +25,7 @@ export default function () {
 
 // Function to fetch color variables and swatches
 async function fetchColors() {
-  // Get the current Figma file
-  const file = figma.root;
-
-  // Array to store color data
-  const colors: any = [];
-
-  // Traverse through the file to find all color nodes
-  file.findAll((node: any): any => {
-    // Check if the node is a solid paint (color)
-    if (
-      node.type === "RECTANGLE" &&
-      node.fills &&
-      node.fills.length > 0 &&
-      node.fills[0].type === "SOLID"
-    ) {
-      // Extract color data and add it to the array
-      const colorData = {
-        name: node.name,
-        color: node.fills[0].color,
-      };
-      colors.push(colorData);
-    }
-  });
-
+  // use getLocalPaintStylesAsync instead it's depreciated
+  const colors = await figma.getLocalPaintStyles();
   return colors;
 }

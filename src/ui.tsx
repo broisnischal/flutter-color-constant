@@ -38,6 +38,7 @@ function Plugin() {
         }}
         placeholder={"File name?"}
       /> */}
+
       <Button onClick={() => emit("GENERATE")}>Generate</Button>
     </div>
   );
