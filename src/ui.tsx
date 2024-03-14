@@ -14,6 +14,7 @@ function Plugin() {
     minWidth: 120,
     resizeBehaviorOnDoubleClick: "minimize",
   });
+
   return (
     <div
       style={{
@@ -38,6 +39,10 @@ function Plugin() {
         }}
         placeholder={"File name?"}
       /> */}
+
+      {/* <textarea name="code" id="code">
+        import 'package:flutter/material.dart';class FigmaColors
+      </textarea> */}
 
       <Button onClick={() => emit("GENERATE")}>Generate</Button>
     </div>

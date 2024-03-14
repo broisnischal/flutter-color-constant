@@ -1,6 +1,7 @@
 import { on, showUI } from "@create-figma-plugin/utilities";
 
 import { ResizeWindowHandler } from "./types";
+import { generateCode, generateOutputText } from "./util";
 
 export default function () {
   on<ResizeWindowHandler>(
@@ -15,6 +16,11 @@ export default function () {
     // console.log("trying to generate the file.");
     const colors = await fetchColors();
     console.log("Colors:", colors);
+    const code = generateCode(colors);
+
+    const output = generateOutputText(code);
+    console.log("Output:", output);
+    // copy(output);
   });
 
   showUI({
